@@ -18,9 +18,9 @@ public class NetworkUtils {
 
 
 
-    public static URL buildUrl(String newsSearchQuery) {
+    public static URL buildUrl() {
         Uri builtUri = Uri.parse(NEWS_BASE_URL).buildUpon()
-                .appendQueryParameter(PARAM_QUERY, newsSearchQuery)
+                .appendQueryParameter(PARAM_QUERY,"")
                 .build();
 
         URL url = null;
@@ -54,36 +54,35 @@ public class NetworkUtils {
 
     }
 
-    public class NewsQueryTask extends AsyncTask<URL, Void, String> {
-        @Override
-        protected String doInBackground(URL[] urls) {
-
-
-            String newsSearchResult = null;
-
-            URL url = NetworkUtils.buildUrl(newsSearchResult);
-
-
-
-            try {
-
-                newsSearchResult = NetworkUtils.getResponseFromHttpUrl(url);
-
-            } catch (IOException e) {
-
-                e.printStackTrace();
-
-            }
-
-            return newsSearchResult;
-        }
-
-
+//    public class NewsQueryTask extends AsyncTask<URL, Void, String> {
+//        @Override
+//        protected String doInBackground(URL[] urls) {
+//
+//
+//            String newsSearchResult = null;
+//
+//            URL url = NetworkUtils.buildUrl();
+//
+//
+//
+//            try {
+//
+//                newsSearchResult = NetworkUtils.getResponseFromHttpUrl(url);
+//
+//            }  catch (IOException e) {
+//
+//                e.printStackTrace();
+//
+//            }
+//
+//            return newsSearchResult;
+//        }
+//
+//
 
     }
 
 
 
-}
 
 
